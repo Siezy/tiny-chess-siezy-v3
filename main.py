@@ -3,7 +3,7 @@ L=os.getenv('MAKEFUN_ENV_URL') or sys.exit()
 def R(p,d):
  try:return json.load(H.urlopen(L+p,json.dumps(d).encode()))
  except:sys.exit()
-W=(100,320,330,500,900,0);N=2.5e4;B=[0]*128;S=1;C=0;E=-1;Y=[];J={};Z=[0]*128
+W=(100,320,330,500,900,0);N=5e4;B=[0]*128;S=1;C=0;E=-1;Y=[];J={};Z=[0]*128
 P='1111111112222221234444322345543234566543345555434555555444444444'
 D8=(-17,-15,15,17,-16,-1,1,16)
 def F(f):
