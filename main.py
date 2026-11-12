@@ -3,7 +3,7 @@ L=os.getenv('MAKEFUN_ENV_URL') or sys.exit()
 def R(p,d):
  try:return json.load(H.urlopen(L+p,json.dumps(d).encode()))
  except:sys.exit()
-W=(100,320,330,500,900,0);N=5e4;B=[0]*128;S=1;C=0;E=-1;Y=[];J={};Z=[0]*128
+W=(100,320,330,500,900,0);N=6.5e4;B=[0]*128;S=1;C=0;E=-1;Y=[];J={};Z=[0]*128
 P='1111111112222221234444322345543234566543345555434555555444444444'
 D8=(-17,-15,15,17,-16,-1,1,16)
 def F(f):
@@ -100,21 +100,21 @@ T=0
 def A(d,a,b,y):
  global T;T+=1
  if T>N:raise StopIteration
- ck=X(K(S),-S)
  if d>0:
+  ck=X(K(S),-S)
   if ck:d+=1
   k=(tuple(B),S,C,E);e=J.get(k)
   if e and e[0]>=d and(e[2]<2 and(e[2]==0 or e[1]>=b)or e[2]==2 and e[1]<=a):return e[1]
   m=G();bm=e and e[3]
  else:
-  if not ck:
-   s=V()
-   if s>=b:return b
-   a=max(a,s)
-  m=G() if ck else G(1);bm=None
+  s=V()
+  if s>=b:return b
+  a=max(a,s)
+  m=G(1);bm=None
  m.sort(key=lambda x:(x==bm,Z[y&127]==(x[0],x[1]),W[abs(B[x[1]])-1]),reverse=1)
  bb=None;n=0
  for f,t,pr in m:
+  if d<=0 and B[t] and a>W[abs(B[t])-1]+s+200:continue
   M(f,t,pr)
   if X(K(-S),S):U();continue
   n+=1
@@ -124,7 +124,7 @@ def A(d,a,b,y):
    if d>0:Z[y&127]=(f,t);J[k]=(d,b,1,(f,t,pr))
    return b
   if v>a:a=v;bb=(f,t,pr)
- if n==0 and(d>0 or ck):return ck*(y-9999)
+ if n==0 and d>0:return -9999+y if ck else 0
  if d>0:J[k]=(d,a,2*(not bb),bb)
  return a
 u=lambda s:chr(97+s%16)+chr(49+s//16)
